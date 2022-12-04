@@ -12,16 +12,13 @@ class AssignmentsPair:
         min: int
         max: int
 
-    def __new__(
-        cls,
+    def __init__(
+        self,
         first_assignment: list[int],
         second_assignment: list[int],
-    ) -> "AssignmentsPair":
-        pair = object.__new__(cls)
-        pair.first = cls.AssignmentRange(*first_assignment)
-        pair.second = cls.AssignmentRange(*second_assignment)
-
-        return pair
+    ) -> None:
+        self.first = self.AssignmentRange(*first_assignment)
+        self.second = self.AssignmentRange(*second_assignment)
 
     def is_repeated(self) -> bool:
         return (
