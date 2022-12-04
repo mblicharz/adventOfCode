@@ -1,10 +1,14 @@
 import string
 from collections import Counter
 
-with open("input.txt") as file:
-    input = file.read().splitlines()
+import aocd
 
-rucksacks_compartments = [(rucksack[:len(rucksack) // 2], rucksack[len(rucksack) // 2:]) for rucksack in input]
+input = aocd.get_data(year=2022, day=3).splitlines()
+
+rucksacks_compartments = [
+    (rucksack[: len(rucksack) // 2], rucksack[len(rucksack) // 2 :])
+    for rucksack in input
+]
 
 priority = 0
 
@@ -20,7 +24,7 @@ priority = 0
 
 chunked_rucksacks = []
 for index in range(0, len(input) - 1, 3):
-    chunked_rucksacks.append(input[index:index+3])
+    chunked_rucksacks.append(input[index : index + 3])
 
 for rucksacks in chunked_rucksacks:
     counter = Counter()

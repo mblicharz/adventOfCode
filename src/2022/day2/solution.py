@@ -3,6 +3,9 @@ A(X) - Rock
 B(Y) - Paper
 C(Z) - Scissors
 """
+
+import aocd
+
 mapping = {
     "X": "A",
     "Y": "B",
@@ -19,8 +22,7 @@ defeats = {
     "C": "B",
 }
 
-with open("input.txt") as file:
-    input = [line.split(" ") for line in file.read().splitlines()]
+input = [line.split(" ") for line in aocd.get_data(year=2022, day=2).splitlines()]
 
 points = 0
 
