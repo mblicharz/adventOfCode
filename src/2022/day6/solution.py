@@ -2,14 +2,9 @@ import aocd
 
 
 def find_marker(datastream: str, marker_length: int) -> int:
-    buffer = []
-    for index, letter in enumerate(datastream):
-        buffer.append(letter)
-        if len(buffer) < marker_length:
-            continue
-        if len(set(buffer)) == marker_length:
-            return index + 1
-        buffer.pop(0)
+    for index in range(0, len(datastream)):
+        if len(set(datastream[index : index + marker_length])) == marker_length:
+            return index + marker_length
 
 
 input = aocd.get_data(year=2022, day=6)
